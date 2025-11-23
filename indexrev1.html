@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RRC Engineering Services</title>
+  <style>
+    :root {
+      --primary: #b30000;
+      --secondary: #f0a500;
+      --text-dark: #222;
+      --text-light: #fff;
+      --bg-light: #f7f9fb;
+      --max-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: var(--text-light);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: var(--max-width);
+      margin: auto;
+      /* Increased padding to make the header taller, matching the screenshot */
+      padding: 1.5rem 1rem; 
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Reverting the logo to text-based style */
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 6rem 1rem;
+      max-width: var(--max-width);
+      margin: auto;
+    }
+
+    /* HERO SECTION */
+    #hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+        url("https://images.unsplash.com/photo-1581092334565-7c79dcdf2b7b") center/cover;
+      color: white;
+      padding: 10rem 1rem 8rem;
+    }
+
+    .hero-content {
+      max-width: var(--max-width);
+      margin: auto;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      text-align: left;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-logo {
+      flex-shrink: 0;
+    }
+
+    .hero-logo img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    #hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    #hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--text-light);
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      margin-top: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #d98c00;
+    }
+
+    /* SERVICES SECTION */
+    #services {
+      text-align: center;
+    }
+
+    #services h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+
+    /* ABOUT SECTION */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    #about img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    #about p {
+      font-size: 1rem;
+    }
+
+    /* CONTACT SECTION */
+    #contact {
+      text-align: center;
+    }
+
+    #contact form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    footer {
+      background: var(--primary);
+      color: var(--text-light);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* MOBILE STYLES */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        /* Adjusted top position due to taller header */
+        top: 85px; 
+        right: 0;
+        background: var(--primary);
+        width: 200px;
+        display: none;
+        padding: 1rem;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      #about {
+        grid-template-columns: 1fr;
+      }
+
+      #hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content {
+          flex-direction: column;
+          text-align: center;
+      }
+
+      .hero-logo img {
+          width: 100px;
+          margin-bottom: 1rem;
+      }
+
+      .hero-logo {
+          order: -1;
+      }
+
+      #hero a.btn {
+          display: block;
+          width: fit-content;
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">RRC Engineering Services</div>
+      <span class="menu-toggle" id="menu-toggle">&#9776;</span>
+      <nav>
+        <ul id="menu">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-logo">
+          <img src="logo.png" alt="RRC Engineering Services Logo">
+      </div>
+      <div class="hero-text">
+          <h1>Reliable Engineering Solutions for Every Project</h1>
+          <p>RRC Engineering Services delivers quality construction, electrical, solar, and design solutions across Visayas.</p>
+          <a href="#contact" class="btn">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Our Core Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>🏗️ General Construction</h3>
+        <p>From groundwork to finishing, we deliver dependable construction solutions for any scale.</p>
+      </div>
+      <div class="service-card">
+        <h3>⚡ Electrical Works</h3>
+        <p>Safe, efficient, and compliant installations for commercial, industrial, and residential projects.</p>
+      </div>
+      <div class="service-card">
+        <h3>☀️ Solar Power Systems</h3>
+        <p>Sustainable energy solutions designed for performance, reliability, and long-term savings.</p>
+      </div>
+      <div class="service-card">
+        <h3>🧩 Design Services</h3>
+        <p>Functional and innovative designs tailored to your project’s technical and regulatory requirements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <img src="https://images.unsplash.com/photo-1590490359854-dfba19688a5f" alt="RRC Engineering Team">
+    <div>
+      <h2>About Us</h2>
+      <p>RRC Engineering Services is a Visayas-based company committed to providing practical, cost-effective, and technically sound engineering services. We take pride in our reliability, responsibility, and commitment to every project we handle.</p>
+      <p>Our team of licensed engineers, project managers, and skilled technicians ensures that each project is delivered with precision, safety, and integrity.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you. Let’s build something great together!</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 RRC Engineering Services | Cebu & Leyte | All Rights Reserved
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
